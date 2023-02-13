@@ -45,7 +45,7 @@ function formatDate() {
   
   function displayWeatherCondition(response){
   document.querySelector("#city").innerHTML = response.data.name;
-  let celsiusTemp = response.data.main.temp;
+  celsiusTemp = response.data.main.temp;
   document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
