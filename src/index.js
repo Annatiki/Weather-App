@@ -49,7 +49,12 @@ function formatDate() {
     let city= document.querySelector("#search-input").value;
     search(city);
   }
-
+  function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "2718952144ed077c12e7c160fb6fc351";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+  }
   //forEach loop 
 
   function displayForecast(response) {
@@ -128,23 +133,20 @@ let celsiusTemp = null;
   
   
   // Current location
- 
  let currentLocationButton= document.querySelector("#current-location");
  currentLocationButton.addEventListener("click", getCurrentLocation)
-  
-  
+   
+ function searchLocation(position) {
+  let apiKey = "2718952144ed077c12e7c160fb6fc351";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
+    position.coords.latitude
+  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
   function getCurrentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
-
-  function getForecast(coordinates) {
-    console.log(coordinates);
-    let apiKey = "2718952144ed077c12e7c160fb6fc351";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayForecast);
-  }
-
 
   search("Cape Town");
   
