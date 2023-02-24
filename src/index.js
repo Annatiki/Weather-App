@@ -42,10 +42,40 @@ function formatDate() {
     let city= document.querySelector("#search-input").value;
     search(city);
   }
+
+  //forEach loop 
   
+  function displayForecast() {
+   let forecastElement = document.querySelector("#forecast");
+   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+   let forecastHTML = `<div class="row">`;
+          days.forEach(function (day) {
+            forecastHTML = forecastHTML +
+              `<div class="col-2">
+            <div class="forecast-day">${day}</div>
+            <div class="forecast-icon">
+              <img src="http://openweathermap.org/img/wn/50d@2x.png"
+              alt="" width="50"/>
+            </div>
+            <div class="forecast-temperature">
+              <span class="weather-forecast-temp-max"><b>22°</b> </span>
+              <span class="weather-forecast-temp-min"> 15°</span>
+            </div>
+          </div>`;
+          });
+        
+          forecastHTML = forecastHTML + `</div>`;
+          forecastElement.innerHTML = forecastHTML;
+          console.log(forecastHTML);
+        }
+              
+
+
+
   function displayWeatherCondition(response){
   document.querySelector("#city").innerHTML = response.data.name;
   celsiusTemp = response.data.main.temp;
+  
   document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
@@ -111,4 +141,4 @@ let celsiusTemp = null;
   }
 
   search("Cape Town");
-
+  displayForecast();
