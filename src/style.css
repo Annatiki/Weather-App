@@ -57,7 +57,6 @@ input {
   background-color: rgb(129, 129, 129);
 }
 
-
 h1 {
   font-size: 50px;
   text-align: center;
@@ -93,9 +92,7 @@ a:hover {
   margin: 0 auto;
   justify-content: center;
 }
-.row .weather-forecast{
 
-}
 .forecast-day {
   color: #bababa;
   font-size: 16px;
@@ -113,13 +110,11 @@ a:hover {
   text-align: center;
 }
 
-
 .weather-icon .units {
   position: relative;
   font-size: 16px;
   top: -18px;
 }
-
 .weather-icon .active {
   color: rgb(33, 33, 33);
   cursor: default;
@@ -127,4 +122,7 @@ a:hover {
 
 .weather-icon .active:hover {
   text-decoration: none;
+}
+span {
+  color:#000;
 }
