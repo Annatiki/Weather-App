@@ -85,14 +85,20 @@ a:hover {
 .weather-detail {
   color: rgb(129, 129, 129);
 }
-.row {
+.weather-forecast {
+ text-align: center; 
+}
+
+.row.weather-detail {
   margin: 0 auto;
   justify-content: center;
 }
+.row .weather-forecast{
 
+}
 .forecast-day {
   color: #bababa;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   height: 15px;
   line-height: 15px;
